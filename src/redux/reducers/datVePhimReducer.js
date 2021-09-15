@@ -1,7 +1,5 @@
-import dataMovie from "./danhSachGhe.json";
-
 const initialState = {
-    movieList: dataMovie,
+    movieList: { soGhe: 1, gia: 1000 },
 };
 
 const datVePhimReducer = (state = initialState) => {
