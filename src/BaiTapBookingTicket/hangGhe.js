@@ -1,18 +1,29 @@
 import React, { Component } from "react";
 import "./hangGhe.css";
+import { connect } from "react-redux";
+import { datGheAction } from "../redux/action/datvePhimActions";
 
-export default class HangGhe extends Component {
+class HangGhe extends Component {
     renderGhe = () => {
         return this.props.hangGhe.danhSachGhe.map((ghe, index) => {
             let cssGheDaDat = "";
-            let disable = false;
+            // trang thái ghế đã được người khác đặt
             if (ghe.daDat) {
                 cssGheDaDat = "gheDuocChon";
-                disable = true;
             }
 
+            // xét trạng thái ghế đang đặt
+            let cssGheDangDat = "";
+            let indexGheDangDat = this.props.danhSachGheDangDat.findIndex(
+                (gheDangDat) => gheDangDat.soGhe === ghe.soGhe
+            );
+            if (indexGheDangDat !== -1) {
+                cssGheDangDat = "gheDangChon";
+            }
             return (
-                <button disable={disable} className={`ghe ${cssGheDaDat}`} key={index}>
+                <button onClick={() => {
+                    this.props.datGhe(ghe)
+                }} className={`ghe ${cssGheDaDat} ${cssGheDangDat}`} key={index}>
                     {ghe.soGhe}
                 </button>
             );
@@ -21,10 +32,12 @@ export default class HangGhe extends Component {
 
     renderSoHang = () => {
         return this.props.hangGhe.danhSachGhe.map((hang, index) => {
-            return <button className="rowNumber">
-                {hang.soGhe}
-            </button>
-        })
+            return (
+                <button className="rowNumber" key={index}>
+                    {hang.soGhe}
+                </button>
+            );
+        });
     };
 
     renderHangGhe = () => {
@@ -53,3 +66,19 @@ export default class HangGhe extends Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        danhSachGheDangDat: state.datVePhimReducer.danhSachGheDangDat,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        datGhe: (ghe) => {
+            dispatch(datGheAction(ghe));
+        },
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HangGhe);
