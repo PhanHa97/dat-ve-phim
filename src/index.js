@@ -11,7 +11,7 @@ import "bootstrap/dist/js/bootstrap.min.js";
 
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import rootReducer from './redux/reudcers/rootReducer';
+import rootReducer from "./redux/reducers/rootReducer";
 
 const store = createStore(rootReducer);
 

@@ -1,8 +1,18 @@
-import React, { Component } from "react";
+import React, { Component, } from "react";
 import "./index.css";
 import ThongTinDatGhe from "./thongTinDatGhe";
-
+import DanhSachGheData from "../Data/danhSachGhe.json";
+import HangGhe from "./hangGhe";
 export default class BaiTapBookingTicket extends Component {
+
+    renderHangGhe = () => {
+        return DanhSachGheData.map((hangGhe, index) => {
+            return <div key={index} >
+                <HangGhe hangGhe={hangGhe} soHangGhe={index} />
+            </div>
+        })
+    }
+
     render() {
         return (
             <div className="bookingMovie">
@@ -17,6 +27,7 @@ export default class BaiTapBookingTicket extends Component {
                                 <div className="curtain ">
                                     <div className="screen"></div>
                                 </div>
+                                {this.renderHangGhe()}
                             </div>
 
                             <div className="col-4">

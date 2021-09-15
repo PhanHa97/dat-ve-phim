@@ -5,14 +5,14 @@ export default class ThongTinDatGhe extends Component {
     render() {
         return (
             <div>
-                <div >
+                <div className="chair-list">
                     <button className="gheDuocChon mt-4"></button>
                     <span className="text-light mx-2">Ghế đã đặt</span>
                     <br />
                     <button className="gheDangChon my-2"></button>
                     <span className="text-light mx-2">Ghế đang đặt</span>
                     <br />
-                    <button className="ghe"></button>
+                    <button className="ghe" style={{ marginLeft: 0 }}></button>
                     <span className="text-light mx-2">Ghế chưa đặt</span>
                 </div>
 

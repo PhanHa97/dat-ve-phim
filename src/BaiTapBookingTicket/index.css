@@ -23,9 +23,12 @@
 }
 .curtain {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   margin-top: 1rem;
+
+  align-items: center;
+  margin: left;
 }
 .screen {
   border-bottom: 50px solid rgb(255, 159, 95);
@@ -44,8 +47,8 @@
   height: 35px;
   background: none;
   border: none;
-  margin-left: 2%;
-  margin-bottom: 1%;
+  margin-left: 2.35%;
+  margin-bottom: 2%;
   font-size: 30px;
   color: yellow;
 }

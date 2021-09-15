@@ -6,7 +6,7 @@
 
   cursor: no-drop !important;
   border-radius: 5px;
-  width: 35px;
+  width: 45px;
   height: 35px;
 }
 .gheDangChon {
@@ -16,15 +16,18 @@
 
   cursor: pointer;
   border-radius: 5px;
-  width: 35px;
+  width: 45px;
   height: 35px;
 }
 .ghe {
   border: 3px solid orange;
-  width: 35px;
+  width: 45px;
   height: 35px;
   font-size: 12px;
-  /* margin-left: 2%; */
+  margin-left: 2.4%;
   margin-bottom: 1%;
   border-radius: 5px;
+}
+.chair-list {
+  font-size: 20px;
 }
